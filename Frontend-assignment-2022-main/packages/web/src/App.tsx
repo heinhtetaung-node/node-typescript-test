@@ -6,10 +6,15 @@ function App() {
       <u>Restaurants</u>
       <br />
       <br />
-      &nbsp;&nbsp;<a href="/restaurant/567051">ร้านลืมเคี้ยว</a>
+      &nbsp;&nbsp;
+      <a href="/restaurant/567051" className="underline text-blue-600">
+        ร้านลืมเคี้ยว
+      </a>
       <br />
       &nbsp;&nbsp;
-      <a href="/restaurant/227018">Ekkamai Macchiato - Home Brewer</a>
+      <a href="/restaurant/227018" className="underline text-blue-600">
+        Ekkamai Macchiato - Home Brewer
+      </a>
     </div>
   );
 }

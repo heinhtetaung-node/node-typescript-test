@@ -11,7 +11,7 @@ function App() {
   const getDatas = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3001/restaurants/" + id + "/menus"
+        `${import.meta.env.VITE_API_URL}/restaurants/${id}/menus`
       );
       if (response.status !== 200) {
         return history.push("/");
@@ -30,11 +30,11 @@ function App() {
   if (!restaurant?.id) return <></>;
 
   return (
-    <div className="bg-red-600 w-full h-full">
+    <div>
       <a href="/">
         <h2>&#x2190;</h2>
       </a>
-      <h1 className="text-green-400">{restaurant?.name}</h1>
+      <h1>{restaurant?.name}</h1>
       <br />
       <img src={restaurant?.coverImage} />
       <br />
