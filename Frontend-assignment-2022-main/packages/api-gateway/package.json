@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only index.ts",
     "build": "tsc",
-    "test": "tsc && mocha dist/test/*.spec.js -r dotenv/config"
+    "test": "tsc && mocha dist/test/*.spec.js -r dotenv/config --exit"
   },
   "devDependencies": {
     "@types/chai": "^4.3.11",
