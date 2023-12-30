@@ -1,6 +1,7 @@
 import express, { Application, Request } from "express";
 import NodeCache from "node-cache";
 import dotenv from "dotenv";
+import cors from "cors";
 import {
   getRestaurant,
   getRestaurantMenu,
@@ -15,6 +16,7 @@ apiCache.flushAll();
 const app: Application = express();
 const port = 3001;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
