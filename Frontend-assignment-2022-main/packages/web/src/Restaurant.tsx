@@ -60,7 +60,24 @@ function App() {
     });
   };
 
-  if (!restaurant?.id) return <></>;
+  if (!restaurant?.id) {
+    return (
+      <div className="w-full p-4">
+        <div className="w-32 h-8 mb-6 mt-6 animate-pulse bg-slate-200"></div>
+        <div className="w-52 h-10 mb-6 mt-6 animate-pulse bg-slate-200"></div>
+        <div className="w-full h-52 animate-pulse mb-10 bg-slate-200"></div>
+
+        {[1, 2, 3, 4, 5].map((num) => {
+          return (
+            <div className="mt-2">
+              <div className="w-28 h-28 bg-slate-200"></div>
+              <hr className="mt-3 mb-8" />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -20,11 +20,34 @@ describe("API testing", () => {
     beforeEach(() => {
       nock(apiBaseUrl)
         .get(`/restaurants/${restauntId}.json`)
-        .reply(200, { menus: ["coffee", "mocha"] });
+        .reply(200, {
+          name: "ลืมเคี้ยว",
+          id: 567051,
+          coverImage:
+            "https://img.wongnai.com/p/1920x0/2021/08/14/f6ae0252eb0d44b79553c0dba6e56cfe.jpg",
+          activeTimePeriod: {
+            open: "10:30",
+            close: "20:00",
+          },
+          menus: [menuName],
+        });
       nock(apiBaseUrl)
         .get(`/restaurants/${restauntId}/menus/${menuName}/full.json`)
         .reply(200);
-      nock(apiBaseUrl).get(`/restaurants/${restauntId}/menus`).reply(200);
+      nock(apiBaseUrl)
+        .get(`/restaurants/${restauntId}/menus/${menuName}/short.json`)
+        .reply(200, {
+          data: {
+            name: menuName,
+            id: menuName,
+            thumbnailImage:
+              "https://img.wongnai.com/p/100x100/2021/01/30/e0ba0ea6d9d4465eb8c1db88806ce3f9.jpg",
+            discountedPercent: 0,
+            fullPrice: 80,
+            sold: 100,
+            totalInStock: 200,
+          },
+        });
     });
 
     it("should return response on call", async () => {
