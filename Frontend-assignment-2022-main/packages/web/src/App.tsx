@@ -1,17 +1,16 @@
 function App() {
   return (
-    <div>
-      <h1>LINE MAN Wongnai Frontend Assignment!</h1>
+    <div className="w-full flex flex-col mt-4 items-center justify-center">
       <br />
-      <u>Restaurants</u>
+      <h1 className="text-2xl">Restaurants</h1>
       <br />
       <br />
-      &nbsp;&nbsp;
+
       <a href="/restaurant/567051" className="underline text-blue-600">
         ร้านลืมเคี้ยว
       </a>
       <br />
-      &nbsp;&nbsp;
+
       <a href="/restaurant/227018" className="underline text-blue-600">
         Ekkamai Macchiato - Home Brewer
       </a>

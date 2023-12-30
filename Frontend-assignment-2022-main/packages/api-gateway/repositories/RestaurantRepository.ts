@@ -14,6 +14,33 @@ export const getRestaurantMenu = (
     `${apiBaseUrl()}${restaurantId}/menus/${menuName}/${type}.json`
   );
 
+export type MenuShort = {
+  name: string;
+  fullPrice: number;
+  discountedPercent: number;
+  totalInStock: number;
+  sold: number;
+};
+
+export const getRandomItem = (items: any[]) => {
+  return items[Math.floor(Math.random() * items.length)];
+};
+
+export const addDiscountToRandomItems = (menuShort: MenuShort) => {
+  if (getRandomItem([true, false, false])) {
+    menuShort.discountedPercent = getRandomItem([10, 15, 20]);
+  }
+  return menuShort;
+};
+
+export const addPopularToRandomItems = (menuShort: MenuShort) => {
+  menuShort.sold = getRandomItem([
+    menuShort.sold,
+    100 + getRandomItem([10, 15, 20]),
+  ]);
+  return menuShort;
+};
+
 export const getRestaurantMenus = async (id: number) => {
   const { data, status } = await getRestaurant(id);
   if (status !== 200) return { data, status };
@@ -24,7 +51,7 @@ export const getRestaurantMenus = async (id: number) => {
         menuName,
         "short"
       );
-      return menuShort;
+      return addPopularToRandomItems(addDiscountToRandomItems(menuShort));
     })
   );
   return { data, status };
