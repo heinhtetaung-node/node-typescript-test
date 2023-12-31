@@ -7513,7 +7513,7 @@ raw-body@2.5.1:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-react-dom@^18.2.18:
+react-dom@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -8662,6 +8662,11 @@ ts-interface-checker@^0.1.9:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
+
+ts-jest-mock-import-meta@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ts-jest-mock-import-meta/-/ts-jest-mock-import-meta-1.1.0.tgz#496861ad70cba7743f3a135bfc195ea1e280849d"
+  integrity sha512-PTmdWGbDZOPh8vyZUmCTK5PjeD2X3YO25MQPTbm0lMlNFigUDwz3opwXOlsrgD0i5u/MpDX0gdZKoVONxVjVEw==
 
 ts-jest@^29.1.1:
   version "29.1.1"

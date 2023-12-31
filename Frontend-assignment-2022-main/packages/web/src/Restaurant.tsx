@@ -14,19 +14,14 @@ function App() {
   const tabs = ["All", "Popular", "Promotions"];
 
   const getDatas = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/restaurants/${id}/menus`
-      );
-      if (response.status !== 200) {
-        return history.push("/");
-      }
-      const data = await response.json();
-      setRestaurant(data);
-    } catch (err) {
-      console.log(err);
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}/restaurants/${id}/menus`
+    );
+    if (response.status !== 200) {
       return history.push("/");
     }
+    const data = await response.json();
+    setRestaurant(data);
   };
   useEffect(() => {
     getDatas();
@@ -69,7 +64,7 @@ function App() {
 
         {[1, 2, 3, 4, 5].map((num) => {
           return (
-            <div className="mt-2">
+            <div className="mt-2" key={num}>
               <div className="w-28 h-28 bg-slate-200"></div>
               <hr className="mt-3 mb-8" />
             </div>
@@ -98,9 +93,9 @@ function App() {
             <span>Today Order : {detailMenu?.sold}</span>
           </div>
 
-          {detailMenu?.options.map((option: any) => {
+          {detailMenu?.options.map((option: any, key: number) => {
             return (
-              <div>
+              <div key={`option-${key}`}>
                 <span>{option.label}</span>
                 <ul>
                   {option.choices.map((choice: any) => {
@@ -143,6 +138,8 @@ function App() {
         {tabs.map((tab, i) => {
           return (
             <span
+              key={`tab-${i}`}
+              data-testid={`tab-${tab}`}
               className={`${
                 i === activeTab
                   ? "bg-green-500 text-white "
@@ -158,8 +155,9 @@ function App() {
       <br />
       {filterResult(restaurant?.menus).map((menu: any) => {
         return (
-          <>
+          <div key={menu.id}>
             <div
+              data-testid="menu-item"
               className="w-full flex relative cursor-pointer"
               onClick={() => handleOpenDetail(menu.name, menu)}
             >
@@ -185,7 +183,7 @@ function App() {
               </div>
             </div>
             <hr className="mt-3 mb-8" />
-          </>
+          </div>
         );
       })}
     </div>
